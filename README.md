@@ -20,9 +20,9 @@
  - Input: 
   - Enter a sequence of numbers <separated by space>: 
    - getline, split string by space and store it in array
- - Question: Sort by asc or desc 
-   - if asc, sort by ascending order
-   - else if desc, sort by descending order 
  - Display Result
+  - UNSORTED 
+  - ASCENDING ORDER
+  - DESCENDING ORDER
 
   
