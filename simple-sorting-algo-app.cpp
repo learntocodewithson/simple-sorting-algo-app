@@ -88,11 +88,38 @@ void bubbleSort(Sort &sort){
     // condition
   // swap
 void selectionSort(Sort &sort){
- cout << "Section Sort";
+ system("clear");
+
+ string headerTitle = "\nSelection Sort\n";
+
+ vector<string> data = sort.rangeInput(headerTitle);
+ SelectionSort selection_sort = SelectionSort(data);
+
+ cout << endl << headerTitle;
+ cout << "Printing Unsorted List: ";
+ selection_sort.displaySort(data);
+
+ selection_sort.displayInAscendingOrder();
+ selection_sort.displayInDescendingOrder();
 }
 
+// first loop
+  // second loop (while)
+  // assignment
 void insertionSort(Sort &sort){
- cout << "Insertion Sort";
+ system("clear");
+
+ string headerTitle = "\nInsertion Sort\n";
+
+ vector<string> data = sort.rangeInput(headerTitle);
+ InsertionSort insertion_sort = InsertionSort(data);
+
+ cout << endl << headerTitle;
+ cout << "Printing Unsorted List: ";
+ insertion_sort.displaySort(data);
+
+ insertion_sort.displayInAscendingOrder();
+ insertion_sort.displayInDescendingOrder();
 }
 
 void mergeSort(Sort &sort){

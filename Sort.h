@@ -64,5 +64,7 @@
 
  // intended to declare here at the bottom to make the inheritance works 
  #include "BubbleSort.h"
+ #include "SelectionSort.h"
+ #include "InsertionSort.h"
  // other sort here
 #endif
