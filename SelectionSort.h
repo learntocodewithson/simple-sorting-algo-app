@@ -57,7 +57,9 @@
         // data[0] = 1
         // data[1] = 5
         // data[2] = 9
+        // data[3] = 7
         // 1 5 9
+        
 
         // minindex = i (replace itself)
         if(i != minIndex){
