@@ -15,11 +15,7 @@
      "\t1.) Bubble Sort\n"
      "\t2.) Selection Sort\n"
      "\t3.) Insertion Sort\n"
-     "\t4.) Merge Sort\n"
-     "\t5.) Quick Sort\n"
-     "\t6.) Heap Sort\n"
-     "\t7.) Redix Sort\n"
-     "\t8.) Exit\n\t" + 
+     "\t4.) Exit\n\t" + 
      displayLine();
    }
 

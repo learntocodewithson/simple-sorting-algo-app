@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <chrono>
 #include "Sort.h"
 
 using namespace std;
@@ -9,55 +10,64 @@ using namespace std;
 void bubbleSort(Sort &sort);
 void selectionSort(Sort &sort);
 void insertionSort(Sort &sort);
-void mergeSort(Sort &sort);
-void quickSort(Sort &sort);
-void heapSort(Sort &sort);
-void redixSort(Sort &sort);
 
 int main(){
  Sort sort;
  int choice;
  bool exit_program = false;
 
- do {
-  // system("clear");
+ vector<string> data = sort.splitString("9 5 1 7", ' ');
+ BubbleSort bubble_sort = BubbleSort(data);
+ auto start = std::chrono::steady_clock::now();
+ bubble_sort.displayInAscendingOrder();
+ auto end = std::chrono::steady_clock::now();
+ chrono::duration<double> bubbleSortTime = end - start;
+ cout << "\n\nBubble Sort Time: " << bubbleSortTime.count() << " seconds" << endl;
+ 
+ data = sort.splitString("9 5 1 7", ' ');
+ SelectionSort selection_sort = SelectionSort(data);
+ start = std::chrono::steady_clock::now();
+ selection_sort.displayInAscendingOrder();
+ end = std::chrono::steady_clock::now();
+ chrono::duration<double> selectionSortTime = end - start;
+ cout << "\n\nSelection Sort Time: " << selectionSortTime.count() << " seconds" << endl;
 
-  cout << sort.displayTitle();
-  cout << sort.displayMenu();
+ data = sort.splitString("9 5 1 7", ' ');
+ InsertionSort insertion_sort = InsertionSort(data);
+ start = std::chrono::steady_clock::now();
+ insertion_sort.displayInAscendingOrder();
+ end = std::chrono::steady_clock::now();
+ chrono::duration<double> insertionSortTime = end - start;
+ cout << "\n\nInsertion Sort Time: " << insertionSortTime.count() << " seconds" << endl;
 
-  cout << "\n\n< Enter from 1 to 8 >";
-  cout << "\nWhat do you want to do?: ";
-  cin >> choice;
 
-  switch (choice){
-  case 1:
-   bubbleSort(sort);
-   break;
-  case 2:
-   selectionSort(sort);
-   break;
-  case 3:
-   insertionSort(sort);
-   break;
-  case 4:
-   mergeSort(sort);
-   break; 
-  case 5:
-   quickSort(sort);
-   break; 
-  case 6:
-   heapSort(sort);
-   break;
-  case 7:
-   redixSort(sort);
-   break;  
-  default:
-   exit_program = true;
-   cout << "\nThank you for using this app.\n";
-   break;
-  }
+//  do {
+//   // system("clear");
 
- } while(!exit_program);
+//   cout << sort.displayTitle();
+//   cout << sort.displayMenu();
+
+//   cout << "\n\n< Enter from 1 to 8 >";
+//   cout << "\nWhat do you want to do?: ";
+//   cin >> choice;
+
+//   switch (choice){
+//   case 1:
+//    bubbleSort(sort); // 0.000008167
+//    break;
+//   case 2:
+//    selectionSort(sort); //  0.0000065
+//    break;
+//   case 3:
+//    insertionSort(sort); // 0.0000075
+//    break;
+//   default:
+//    exit_program = true;
+//    cout << "\nThank you for using this app.\n";
+//    break;
+//   }
+
+//  } while(!exit_program);
 
  return 0;
 }
@@ -78,8 +88,14 @@ void bubbleSort(Sort &sort){
   cout << "Printing Unsorted List: ";
   bubble_sort.displaySort(data);
 
+  auto start = std::chrono::steady_clock::now();
   bubble_sort.displayInAscendingOrder();
-  bubble_sort.displayInDescendingOrder();
+  auto end = std::chrono::steady_clock::now();
+  chrono::duration<double> bubbleSortTime = end - start;
+  cout << "\n\nBubble Sort Time: " << bubbleSortTime.count() << " seconds" << endl;
+
+  // 0.000008167
+  // bubble_sort.displayInDescendingOrder();
 }
 
 
@@ -99,8 +115,13 @@ void selectionSort(Sort &sort){
  cout << "Printing Unsorted List: ";
  selection_sort.displaySort(data);
 
- selection_sort.displayInAscendingOrder();
- selection_sort.displayInDescendingOrder();
+  auto start = std::chrono::steady_clock::now();
+  selection_sort.displayInAscendingOrder();
+  auto end = std::chrono::steady_clock::now();
+  chrono::duration<double> selectionSortTime = end - start;
+  cout << "\n\nSelection Sort Time: " << selectionSortTime.count() << " seconds" << endl;
+//  0.0000065
+//  selection_sort.displayInDescendingOrder();
 }
 
 // first loop
@@ -117,23 +138,12 @@ void insertionSort(Sort &sort){
  cout << endl << headerTitle;
  cout << "Printing Unsorted List: ";
  insertion_sort.displaySort(data);
-
+ 
+ auto start = std::chrono::steady_clock::now();
  insertion_sort.displayInAscendingOrder();
- insertion_sort.displayInDescendingOrder();
-}
+ auto end = std::chrono::steady_clock::now();
+ chrono::duration<double> insertionSortTime = end - start;
+ cout << "\n\nInsertion Sort Time: " << insertionSortTime.count() << " seconds" << endl;
 
-void mergeSort(Sort &sort){
- cout << "Merge Sort";
-}
-
-void quickSort(Sort &sort){
- cout << "Quick Sort";
-}
-
-void heapSort(Sort &sort){
- cout << "Heap Sort";
-}
-
-void redixSort(Sort &sort){
- cout << "Redix Sort";
+ //  insertion_sort.displayInDescendingOrder();
 }
